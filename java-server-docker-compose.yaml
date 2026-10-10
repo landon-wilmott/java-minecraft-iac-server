@@ -22,7 +22,7 @@ services:
       OPS: "LAW2003"
 
       # Mod that allows different minecraft client version to work
-      MODRINTH_PROJECTS: "viaversion"
+      MODRINTH_PROJECTS: "viaversion, discordsrv"
 
       # mod used to create a tunnel from internet to my server
       SPIGET_RESOURCES: "105566"
