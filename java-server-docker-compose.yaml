@@ -25,7 +25,7 @@ services:
       MODRINTH_PROJECTS: "viaversion"
 
       # mod used to create a tunnel from internet to my server
-      ENABLE_PLAYIT: "true"
+      SPIGET_RESOURCES: "105566"
       
     volumes:
       - ./data:/data
