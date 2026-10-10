@@ -19,10 +19,10 @@ services:
       MAX_PLAYERS: 10
 
       # Makes my player an admin
-      #OPS: "Lawilm03"
+      OPS: "LAW2003"
 
       # Mod that allows different minecraft client version to work
-      MODRINTH_PROJECTS: "viaversion"
+      MODRINTH_PROJECTS: "viaversion, playit-gg"
       
     volumes:
       - ./data:/data
