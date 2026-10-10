@@ -22,7 +22,10 @@ services:
       OPS: "LAW2003"
 
       # Mod that allows different minecraft client version to work
-      MODRINTH_PROJECTS: "viaversion, playit-gg"
+      MODRINTH_PROJECTS: "viaversion"
+
+      # mod used to create a tunnel from internet to my server
+      ENABLE_PLAYIT: "true"
       
     volumes:
       - ./data:/data
