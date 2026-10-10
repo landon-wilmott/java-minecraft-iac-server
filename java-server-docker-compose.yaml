@@ -19,7 +19,7 @@ services:
       MAX_PLAYERS: 10
 
       # Makes my player an admin
-      OPS: "Lawilm03"
+      #OPS: "Lawilm03"
 
       # Mod that allows different minecraft client version to work
       MODRINTH_PROJECTS: "viaversion"
