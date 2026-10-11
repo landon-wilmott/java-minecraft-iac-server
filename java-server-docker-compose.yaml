@@ -6,26 +6,31 @@ services:
     stdin_open: true
     restart: unless-stopped
     ports:
-      - "25565:25565"
+      - "25565:25565" # java port
+      - "19132:19132/udp" # bedrock port
     environment:
       EULA: "TRUE"
-      TYPE: PAPER
+      TYPE: PAPER # lightweight version
       VERSION: LATEST
-      MEMORY: "4G"
+      MEMORY: "6G"
       USE_AIKAR_FLAGS: "TRUE"
       GAMEMODE: survival
       DIFFICULTY: normal
-      MOTD: "Welcome to the Paper Server!"
+      MOTD: "TMML! Lets go crafter!"
       MAX_PLAYERS: 10
 
-      # Makes my player an admin
-      OPS: "LAW2003"
+      OPS: "LAW2003" # Makes my player an admin
 
       # Mod that allows different minecraft client version to work
-      MODRINTH_PROJECTS: "viaversion, discordsrv"
-
-      # mod used to create a tunnel from internet to my server
-      SPIGET_RESOURCES: "105566"
+      MODRINTH_PROJECTS: "viaversion, discordsrv, geyser, floodgate"
       
     volumes:
       - ./data:/data
+
+  playit:
+    image: pepaondrugs/playitgg-docker:latest
+    container_name: playit-agent
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - ./playit-data:/root
