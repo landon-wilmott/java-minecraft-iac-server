@@ -16,13 +16,14 @@ services:
       USE_AIKAR_FLAGS: "TRUE"
       GAMEMODE: survival
       DIFFICULTY: normal
-      MOTD: "TMML! Lets go crafter!"
+      MOTD: "TMML! Lets go crafters!"
       MAX_PLAYERS: 10
 
       OPS: "LAW2003" # Makes my player an admin
 
       # Mod that allows different minecraft client version to work
-      MODRINTH_PROJECTS: "viaversion, discordsrv"
+      MODRINTH_PROJECTS: "viaversion, discordsrv, coreprotect, gravevault"
+      # both of these plugins are used in allowing bedrock players to access the java world
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
         https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
@@ -30,6 +31,7 @@ services:
     volumes:
       - ./data:/data
 
+  # Creates a tunnel for java and bedrock to access the server from outsite the local network
   playit:
     image: pepaondrugs/playitgg-docker:latest
     container_name: playit-agent
@@ -37,3 +39,20 @@ services:
     restart: unless-stopped
     volumes:
       - ./playit-data:/root
+
+  backups:
+    image: itzg/mc-backup
+    container_name: server-backups
+    restart: unless-stopped
+    depends_on:
+      mc:
+        condition: service_healthy
+    environment:
+      RCON_HOST: "mc" # mc service
+      BACKUP_INTERVAL: "24h" # Runs automatically every 24 hours
+      PRUNE_BACKUPS_DAYS: "7" # Deletes archives older than 7 days
+    volumes:
+      # Mounts the Minecraft data as read-only so it can be safely zipped
+      - ./mc-data:/data:ro 
+      # Creates a new folder on your host for the zipped archive files
+      - ./mc-backups:/backups
