@@ -22,8 +22,11 @@ services:
       OPS: "LAW2003" # Makes my player an admin
 
       # Mod that allows different minecraft client version to work
-      MODRINTH_PROJECTS: "viaversion, discordsrv, geyser, floodgate"
-      
+      MODRINTH_PROJECTS: "viaversion, discordsrv"
+      PLUGINS: |
+        https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
+        https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+
     volumes:
       - ./data:/data
 
