@@ -22,7 +22,7 @@ services:
       OPS: "LAW2003" # Makes my player an admin
 
       # Mod that allows different minecraft client version to work
-      MODRINTH_PROJECTS: "viaversion, discordsrv, coreprotect, gravevault"
+      MODRINTH_PROJECTS: "viaversion, discordsrv, coreprotect, gravediggerx"
       # both of these plugins are used in allowing bedrock players to access the java world
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
